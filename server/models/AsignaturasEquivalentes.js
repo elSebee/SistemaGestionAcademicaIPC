@@ -37,7 +37,7 @@ export const AsignaturasEquivalentes = sequelize.define('AsignaturasEquivalentes
     allowNull: false,
   },
 }, {
-  tableName: 'asignaturasEquivalentes',  // Nombre de la tabla en la base de datos
+  tableName: 'asignaturasequivalentes',  // Nombre de la tabla en la base de datos
   timestamps: false,  // Desactiva las columnas 'createdAt' y 'updatedAt'
 });
 

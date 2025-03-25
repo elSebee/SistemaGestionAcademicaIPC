@@ -1,3 +1,5 @@
+//estudiantes.controller.js
+
 import {
   getEstudiantes_,
   createEstudiante_,
@@ -6,6 +8,7 @@ import {
   cargaMasiva_,
   eliminarEstudiante_,
   cargaCarreraDestino_,
+  getPorCarrera_,
 } from "../repository/estudiantes.repository.js";
 
 import { Estudiante } from "../models/Estudiantes.js";
@@ -143,3 +146,45 @@ export const cargarCarreraDestino = async (req, res) => {
     });
   }
 };
+
+
+export const eliminarCarreraDestino = async (req, res) => {
+  const { rut } = req.params; // Obtener el RUT del parámetro de la URL
+
+  try {
+    // Buscar al estudiante por su RUT
+    const estudiante = await Estudiante.findOne({ where: { rut } });
+
+    if (!estudiante) {
+      return res.status(404).json({ message: "Estudiante no encontrado" });
+    }
+
+    // Actualizar el campo 'carreraDestino' del estudiante a null
+    const result = await Estudiante.update(
+      { carreraDestino: null }, // Establecer 'carreraDestino' como null
+      { where: { rut } }
+    );
+
+    if (result[0] > 0) { // Si se ha actualizado correctamente
+      return res.status(200).json({ message: "Carrera destino eliminada exitosamente." });
+    } else {
+      return res.status(404).json({ message: "No se encontró la carrera destino para el estudiante con el RUT proporcionado." });
+    }
+  } catch (error) {
+    console.error("Error al eliminar la carrera destino:", error);
+    return res.status(500).json({ message: "Hubo un error al eliminar la carrera destino." });
+  }
+};
+
+export async function getPorCarrera(req, res) {
+  const carreraId = req.params.id;
+
+  try {
+    const data = await getPorCarrera_(carreraId);
+    res.json(data); // Responde con los datos obtenidos
+    // Alternativa: res.status(200).json({ status: true, data: data });
+  } catch (error) {
+    res.status(400).json({ status: false, error: error.message });
+  }
+
+}

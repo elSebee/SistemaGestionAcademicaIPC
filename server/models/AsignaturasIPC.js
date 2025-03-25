@@ -29,6 +29,6 @@ export const AsignaturasIPC = sequelize.define('AsignaturasIPC', {
         allowNull: false
     }
 }, {
-    tableName: 'asignaturasIPC', // Nombre explícito de la tabla en la base de datos
+    tableName: 'asignaturasipc', // Nombre explícito de la tabla en la base de datos
     timestamps: false // Si no tienes columnas de createdAt o updatedAt
 });

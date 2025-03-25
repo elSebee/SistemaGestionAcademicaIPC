@@ -1,0 +1,38 @@
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: 'Jks@a12flp327185@'
+      MYSQL_DATABASE: 'GestionAsignaturasIPC'
+      MYSQL_USER: 'manager_test'
+      MYSQL_PASSWORD: 'RqoK'
+    ports:
+      - "1006:1006"
+    volumes:
+      - ./db/db.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./db/my.cnf:/etc/mysql/my.cnf
+
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "4006:4006"
+    depends_on:
+      - db
+    # Script de espera
+    entrypoint: ["sh", "-c", "until nc -z db 3306; do echo Waiting for MySQL; sleep 20; done; node ./index.js"]
+
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3006:3006"
+    depends_on:
+      - backend
+    env_file: 
+      - ./client/.env 
+      
+volumes:
+  db_data:

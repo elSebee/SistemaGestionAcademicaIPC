@@ -8,9 +8,9 @@ async function main() {
   await sequelize.sync({ force: false });
 
   const ip = process.env.IP || 'localhost';
-  const port = process.env.PORT || 3001;
+  const port = process.env.PORT || 4006;
 
-  app.listen(port, ip, () => {
+  app.listen(port, () => {
     console.log(`Server is running on http://${ip}:${port}`);
   });
 }
