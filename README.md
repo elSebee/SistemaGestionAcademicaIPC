@@ -1,7 +1,5 @@
 # Sistema de Gestión Académica IPC
 
-# Sistema de Gestión de Equivalencias para Ingeniería
-
 Este proyecto es un software diseñado para gestionar automáticamente las equivalencias de asignaturas entre el plan común de ingeniería y las ingenierías de destino. Facilita a los estudiantes y administradores académicos la consulta y validación de asignaturas homologadas.
 
 ## Tecnologías Utilizadas
