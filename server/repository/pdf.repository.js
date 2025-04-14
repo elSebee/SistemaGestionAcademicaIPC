@@ -210,7 +210,7 @@ export async function buildNomina(dataCallback, endCallback) {
 
   try {
     // Llamada a la API para obtener los datos
-    const response = await axios.get('http://146.83.216.166:4006/api/estudiantes/');
+    const response = await axios.get('http://localhost:4006/api/estudiantes/');
     const estudiantes = response.data; // Aquí está el array de estudiantes directamente
 
     // Limpiar y formatear los datos para la tabla
@@ -342,7 +342,7 @@ export async function buildDetallado(carreraId, dataCallback, endCallback) {
 
   try {
       // Llamada a la API para obtener los datos
-      const response = await axios.get(`http://146.83.216.166:4006/api/estudiantes/porCarrera/${carreraId}`);
+      const response = await axios.get(`http://localhost:4006/api/estudiantes/porCarrera/${carreraId}`);
       const estudiantes = response.data;
       
       // console.log(estudiantes);
@@ -416,7 +416,7 @@ export async function buildDetallado(carreraId, dataCallback, endCallback) {
 
 async function obtenerHistorial(rut) {
   try {
-    const response = await axios.get(`http://146.83.216.166:4006/api/historialAcademico/obtenerHistorial/${rut}`);
+    const response = await axios.get(`http://localhost:4006/api/historialAcademico/obtenerHistorial/${rut}`);
     return response.data;  // Retorna el historial obtenido
   } catch (error) {
       console.error(`Error obteniendo historial para RUT ${rut}:`, error);
@@ -426,7 +426,7 @@ async function obtenerHistorial(rut) {
 
 async function obtenerHistorialEquivalente(rut) {
   try {
-      const response = await axios.get(`http://146.83.216.166:4006/api/asignaturasEquivalentes/obtenerEquivalencias?query=${rut}`);
+      const response = await axios.get(`http://localhost:4006/api/asignaturasEquivalentes/obtenerEquivalencias?query=${rut}`);
       return response.data;  // Retorna el historial obtenido
   } catch (error) {
       console.error(`Error obteniendo equivalencias para RUT ${rut}:`, error);

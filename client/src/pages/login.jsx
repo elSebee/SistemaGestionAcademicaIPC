@@ -54,6 +54,7 @@ const Login = ({ onLogin }) => {
         <div>
           <label className="text-lg font-medium">Contraseña</label>
           <input
+            name="passwordInput"
             className="w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent"
             placeholder="Ingrese su contraseña"
             type="password"
