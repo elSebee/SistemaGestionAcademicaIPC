@@ -1,3 +1,17 @@
+# Tareas
+link: https://drive.google.com/drive/folders/18K-Xqa3ecqhiuSW3Vxxw7sloO6mXl53U?usp=sharing
+
+Para ejecutar *automatización de pruebas*:
+- tener proyecto desplegado en docker (instrucciones en sección **Sistema de Gestión Académica IPC**).
+- ejecutar script de testeo como:
+```bash
+python test_sistema_academico.py
+```
+- las pruebas comenzarán y los logs de resultados estarán disponibles en el terminal de ejecución. 
+
+
+
+
 # Sistema de Gestión Académica IPC
 
 Este proyecto es un software diseñado para gestionar automáticamente las equivalencias de asignaturas entre el plan común de ingeniería y las ingenierías de destino. Facilita a los estudiantes y administradores académicos la consulta y validación de asignaturas homologadas.
