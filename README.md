@@ -3,7 +3,7 @@ link: https://drive.google.com/drive/folders/18K-Xqa3ecqhiuSW3Vxxw7sloO6mXl53U?u
 
 Para ejecutar *automatización de pruebas*:
 - tener proyecto desplegado en docker (instrucciones en sección **Sistema de Gestión Académica IPC**).
-- ejecutar script de testeo como:
+- entrar a carpeta "./automatización" y ejecutar script de testeo como:
 ```bash
 python test_sistema_academico.py
 ```
